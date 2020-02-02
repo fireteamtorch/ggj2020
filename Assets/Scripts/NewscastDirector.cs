@@ -35,6 +35,10 @@ public class NewscastDirector : MonoBehaviour
             bad.SetActive(true);
             text.text = failQuotes[Random.Range(0, failQuotes.Length)];
         }
+
+        // Test
+        AudioHandlerScript audioScript = GameObject.Find("AudioHandler").GetComponent<AudioHandlerScript>();
+        audioScript.startNewsHeadMusic();
     }
 
     // Update is called once per frame
