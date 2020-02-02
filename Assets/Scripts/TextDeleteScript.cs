@@ -9,15 +9,20 @@ public class TextDeleteScript : MonoBehaviour
 
     private SpriteRenderer sprRend;
     private Collider2D thisCol2D;
+    private TextMesh txtMesh;
 
     private bool isAttemptingClick;
     private float clickTimer;
     private float clickThreshold = 0.17f;
 
+    private DirectorGame gameDirector;
+
     private void Awake()
     {
-        sprRend = this.GetComponent<SpriteRenderer>();
+        gameDirector = GameObject.FindObjectOfType<DirectorGame>();
+        sprRend = this.GetComponentInChildren<SpriteRenderer>();
         thisCol2D = this.GetComponent<Collider2D>();
+        txtMesh = this.GetComponentInChildren<TextMesh>();
     }
 
     // Start is called before the first frame update
@@ -31,11 +36,13 @@ public class TextDeleteScript : MonoBehaviour
     {
         if (isDeleted)
         {
+            txtMesh.color = Color.Lerp(Color.white, Color.black, 0.6f);
             sprRend.color = Color.gray;
         }
         else
         {
-            sprRend.color = Color.white;
+            txtMesh.color = Color.Lerp(Color.white, Color.black, 0f);
+            sprRend.color = Color.black;
         }
 
         if (isAttemptingClick) {
@@ -51,10 +58,17 @@ public class TextDeleteScript : MonoBehaviour
             clickTimer = 0f;
         }
 
-        if(Input.GetMouseButtonUp(0) && isAttemptingClick && clickTimer < clickThreshold)
+        if (Input.GetMouseButtonUp(0) && isAttemptingClick && clickTimer < clickThreshold)
         {
             //TODO REPORT REMOVE ATTEMPT HERE
-            isDeleted = !isDeleted;
+            if (!isDeleted && gameDirector.ReportDeleteAttempt())
+            {
+                isDeleted = true;
+            } else if (isDeleted)
+            {
+                gameDirector.ReportRemoveCancelled();
+                isDeleted = false;
+            }
             isAttemptingClick = false;
         }
     }

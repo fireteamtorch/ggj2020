@@ -12,6 +12,11 @@ public class DirectorText : MonoBehaviour
     public int quotePlayerScore;
     public int quoteMaxScore;
 
+    public string submittedString;
+    public int submissionScore;
+
+    public bool isFinishedProcessingSubmission;
+
 
     // Update is called once per frame
     void Update()
@@ -22,10 +27,9 @@ public class DirectorText : MonoBehaviour
         }
     }
 
-    void AttemptConcatenateAllText()
+    public void AttemptConcatenateAllText()
     {
         //TextDragScript[] allTextScripts = GameObject.FindObjectsOfType<TextDragScript>(); // Grabs every TextDragScript in the scene
-
         TextDragScript[] allTextScripts = quoteFramesList[(int)selectedQuoteType].dragList;
         List<TextDragScript> tempTextsList = new List<TextDragScript>();
         List<TextDragScript> tempOutputList = new List<TextDragScript>();
@@ -46,12 +50,12 @@ public class DirectorText : MonoBehaviour
                     TextDragScript tempDrag = tempTextsList[n];
 
                     Debug.Log(tempDrag.name + tempDrag.transform.position.ToString() + " TO " + highestScript.name + highestScript.transform.position.ToString());
-                    if (tempDrag.transform.position.y - highestScript.transform.position.y > 0.8f)
+                    if (tempDrag.transform.position.y - highestScript.transform.position.y > 0.6f)
                     {
                         highestScript = tempTextsList[n];
                         highestSlot = n;
                     }
-                    else if ((tempDrag.transform.position.x < highestScript.transform.position.x))
+                    else if (Mathf.Abs(tempDrag.transform.position.y - highestScript.transform.position.y) < 0.2f && (tempDrag.transform.position.x < highestScript.transform.position.x))
                     {
                         highestScript = tempTextsList[n];
                         highestSlot = n;
@@ -71,12 +75,20 @@ public class DirectorText : MonoBehaviour
         string outputString = "";
         foreach (TextDragScript tempScript in tempOutputList)
         {
-            outputString += tempScript.name + " ";
+            TextDeleteScript tempDeleteScript = tempScript.gameObject.GetComponent<TextDeleteScript>();
+            if (tempDeleteScript != null &&  !tempDeleteScript.isDeleted)
+            {
+                outputString += tempScript.gameObject.name + " ";
+            }
         }
 
         Debug.Log("FINAL OUTPUT: " + outputString);
 
         ScoreQuote(outputString);
+
+        submittedString = outputString;
+
+        isFinishedProcessingSubmission = true;
     }
 
     private void ScoreQuote(string concatenatedText)
@@ -90,10 +102,7 @@ public class DirectorText : MonoBehaviour
         {
             case QuoteType.TEST_QUOTE: // Can make unique grading criteria for the test quote here 
 
-                
-
                 // grade here
-
 
 
                 // set these to score actual values
@@ -108,7 +117,10 @@ public class DirectorText : MonoBehaviour
                 quotePlayerScore = 0;
                 break;
         }
+    }
 
-
+    public void ProcessSubmission()
+    {
+        AttemptConcatenateAllText();
     }
 }
