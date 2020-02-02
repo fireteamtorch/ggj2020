@@ -42,8 +42,8 @@ public class DirectorGame : MonoBehaviour
         onScreenQuotePos = new Vector3(0.24f, -0.99f, 0f);
         offScreenQuotePos = new Vector3(0.24f, 10f, 0f);
 
-        onScreenDialoguePos = new Vector3(0f, -4.6f, -2f);
-        offScreenDialoguePos = new Vector3(0f, -10f, -2f);
+        onScreenDialoguePos = new Vector3(0f, -4.6f, -4f);
+        offScreenDialoguePos = new Vector3(0f, -10f, -4f);
 
         textDirector = GameObject.FindObjectOfType<DirectorText>();
         maxRemovesAllowed = 2;
