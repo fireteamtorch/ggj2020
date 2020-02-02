@@ -15,7 +15,8 @@ public class AudioHandlerScript : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
  
-    public void PlayMusic() {
+    public void PlayMusic(bool loop = true) {
+        audioSource.loop = loop;
         if (audioSource.isPlaying) return;
         audioSource.Play();
     }
@@ -24,11 +25,11 @@ public class AudioHandlerScript : MonoBehaviour
         audioSource.Stop();
     }
 
-    public void SetClip(AudioClip clip, bool start = true) {
+    public void SetClip(AudioClip clip, bool start = true, bool loop = true) {
         StopMusic();
         audioSource.clip = clip;
         if (start) {
-            PlayMusic();
+            PlayMusic(loop);
         }
     }
 
