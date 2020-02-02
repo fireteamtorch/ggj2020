@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class DirectorText : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
+    public List<QuoteScript> quoteFramesList;
+    public List<string> quotesRefList;
 
-    }
+    public QuoteType selectedQuoteType;
+
+    public int quotePlayerScore;
+    public int quoteMaxScore;
+
 
     // Update is called once per frame
     void Update()
@@ -21,7 +24,9 @@ public class DirectorText : MonoBehaviour
 
     void AttemptConcatenateAllText()
     {
-        TextDragScript[] allTextScripts = GameObject.FindObjectsOfType<TextDragScript>(); // Grabs every TextDragScript in the scene
+        //TextDragScript[] allTextScripts = GameObject.FindObjectsOfType<TextDragScript>(); // Grabs every TextDragScript in the scene
+
+        TextDragScript[] allTextScripts = quoteFramesList[(int)selectedQuoteType].dragList;
         List<TextDragScript> tempTextsList = new List<TextDragScript>();
         List<TextDragScript> tempOutputList = new List<TextDragScript>();
         foreach (TextDragScript tempScript in allTextScripts)
@@ -70,5 +75,40 @@ public class DirectorText : MonoBehaviour
         }
 
         Debug.Log("FINAL OUTPUT: " + outputString);
+
+        ScoreQuote(outputString);
+    }
+
+    private void ScoreQuote(string concatenatedText)
+    {
+        string rubricString = quotesRefList[(int)selectedQuoteType];
+
+        Debug.Log("Player Quote: " + concatenatedText);
+        Debug.Log("Quote to grade to : " + rubricString);
+
+        switch (selectedQuoteType)
+        {
+            case QuoteType.TEST_QUOTE: // Can make unique grading criteria for the test quote here 
+
+                
+
+                // grade here
+
+
+
+                // set these to score actual values
+                quotePlayerScore = 10;
+                quoteMaxScore = 10;
+
+
+                break;
+
+            default:
+                quoteMaxScore = 0;
+                quotePlayerScore = 0;
+                break;
+        }
+
+
     }
 }

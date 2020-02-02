@@ -363,6 +363,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15bc46c8eb44d184b92c4387bc020b5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quoteFramesList:
+  - {fileID: 1477067575}
+  - {fileID: 0}
+  - {fileID: 0}
+  quotesRefList:
+  - We must submit ourselves to the terrorists. They would never take away our freedoms.
+    Only they can lead us to happiness and prosperity.
+  - 
+  - 
+  selectedQuoteType: 0
+  quotePlayerScore: 0
+  quoteMaxScore: 0
 --- !u!4 &312486827
 Transform:
   m_ObjectHideFlags: 0
@@ -1664,8 +1676,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1477067574}
+  - component: {fileID: 1477067575}
   m_Layer: 0
-  m_Name: TEXT AREA
+  m_Name: Quote Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1695,6 +1708,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1477067575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1477067573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0932bb15fb4ab874cb864952b454ee77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisQuoteType: 0
+  dragList: []
+  deleteList: []
 --- !u!1 &1532410808
 GameObject:
   m_ObjectHideFlags: 0
