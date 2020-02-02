@@ -350,12 +350,11 @@ MonoBehaviour:
   currentInsertsCount: 0
   currentMovesCount: 0
   isSubmitted: 0
-  currentGamePhase: 0
+  currentGamePhase: 1
   phaseTimer: 0
   repairUIAnchor: {fileID: 1566711201}
   dialogueAnchor: {fileID: 1015139029}
   displayScript: {fileID: 900288882}
-  introScript: {fileID: 0}
 --- !u!114 &312486826
 MonoBehaviour:
   m_ObjectHideFlags: 0

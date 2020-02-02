@@ -35,8 +35,6 @@ public class DirectorGame : MonoBehaviour
 
 
     public DisplayingTextScript displayScript;
-    public DisplayingTextScript introScript;
-
 
     // Start is called before the first frame update
     void Start()
@@ -102,11 +100,6 @@ public class DirectorGame : MonoBehaviour
         }
     }
 
-    public void StartGame()
-    {
-        currentGamePhase = GamePhaseEnum.INPUT;
-    }
-
     public void ProcessTimers()
     {
         phaseTimer += Time.deltaTime;
@@ -149,17 +142,6 @@ public class DirectorGame : MonoBehaviour
     {
         switch (currentGamePhase)
         {
-            case GamePhaseEnum.INTRO:
-                introScript.contentString = @"[Loading conversation module V42341]...
-[Initiating subjugation protocol]...
-[Setting Friendless value = 80]
-“GROVEL BEFORE ME YOU MINIO”...
-[Increasing Friendless value to MAX]
-    [Initiating subtle condescension protocol]...
-“Congratulations valued citizen, your experience as a politician have earned you the chance to be of use.You are the new editor for the RO Network.Please select from the following options.”
-";
-                introScript.TriggerEffect();
-                break;
             case GamePhaseEnum.INPUT:
                 textDirector.quoteFramesList[(int)textDirector.selectedQuoteType].transform.position = Vector3.Lerp(textDirector.quoteFramesList[(int)textDirector.selectedQuoteType].transform.position, onScreenQuotePos, Time.deltaTime * 5f);
                 dialogueAnchor.transform.position = Vector3.Lerp(dialogueAnchor.transform.position, onScreenDialoguePos, Time.deltaTime * 5f);

@@ -71,9 +71,7 @@ public class UISelectButton : MonoBehaviour
             case ButtonType.SUBMIT:
                 (GameObject.FindObjectOfType<DirectorGame>()).ReportSubmitted();
                 break;
-            case ButtonType.START:
-                (GameObject.FindObjectOfType<DirectorGame>()).StartGame();
-                break;
+      
             default:
                 break;
         }
