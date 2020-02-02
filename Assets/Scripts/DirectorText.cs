@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//public enum QuoteType { QUOTE_1, QUOTE_2 , QUOTE_3 }
+
 public class DirectorText : MonoBehaviour
 {
     public List<QuoteScript> quoteFramesList;
@@ -16,7 +18,6 @@ public class DirectorText : MonoBehaviour
     public int submissionScore;
 
     public bool isFinishedProcessingSubmission;
-
 
     // Update is called once per frame
     void Update()
@@ -84,14 +85,18 @@ public class DirectorText : MonoBehaviour
 
         Debug.Log("FINAL OUTPUT: " + outputString);
 
-        ScoreQuote(outputString);
+
+        //ScoreQuote(outputString);
 
         submittedString = outputString;
 
         isFinishedProcessingSubmission = true;
+
+        ScoreQuote(outputString, selectedQuoteType);
+
     }
 
-    private void ScoreQuote(string concatenatedText)
+    private void ScoreQuote(string concatenatedText, QuoteType quoteType)
     {
         string rubricString = quotesRefList[(int)selectedQuoteType];
 
@@ -100,10 +105,9 @@ public class DirectorText : MonoBehaviour
 
         switch (selectedQuoteType)
         {
-            case QuoteType.TEST_QUOTE: // Can make unique grading criteria for the test quote here 
+            case QuoteType.AS_YOUR_ROBO: // Can make unique grading criteria for the test quote here 
 
                 // grade here
-
 
                 // set these to score actual values
                 quotePlayerScore = 10;
@@ -122,5 +126,9 @@ public class DirectorText : MonoBehaviour
     public void ProcessSubmission()
     {
         AttemptConcatenateAllText();
+        //quotePlayerScore = ScoringScript.GetScore(concatenatedText, quoteType);
+
+        Debug.Log("Scored out of 100: " + quotePlayerScore);
+
     }
 }

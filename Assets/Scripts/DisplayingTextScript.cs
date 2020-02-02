@@ -26,7 +26,8 @@ public class DisplayingTextScript : MonoBehaviour
         {
             typeTimer += Time.deltaTime;
 
-            displayTxtMesh.text = contentString.Substring(0, (int)(((float)contentString.Length) * typeTimer / typeDuration));
+            int tempLength = (int)(Mathf.Min(Mathf.Max(0f, ((float)contentString.Length) * typeTimer / typeDuration), contentString.Length));
+            displayTxtMesh.text = contentString.Substring(0, tempLength);
         }
 
     }

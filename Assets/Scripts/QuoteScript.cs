@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum QuoteType { TEST_QUOTE, QUOTE_1 , QUOTE_2}
+public enum QuoteType { WE_MUST_SUBMIT, AS_YOUR_ROBO , HUMANS_ARE_FUNDAMENTALLY}
 
 public class QuoteScript : MonoBehaviour
 {
