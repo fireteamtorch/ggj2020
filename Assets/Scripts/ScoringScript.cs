@@ -4,14 +4,6 @@ using UnityEngine;
 
 public class ScoringScript : MonoBehaviour
 {
-    /*
-     * 0 = "We must never submit"
-     * 
-     * 
-     */
-
-
-    int score;
 
     // Start is called before the first frame update
     void Start()
@@ -25,27 +17,52 @@ public class ScoringScript : MonoBehaviour
         
     }
 
-    int GetScore(string finalText, int id)
+    public static int GetScore(string txt, QuoteType quote)
     {
-        score = 0;
-        string txt = finalText.ToLower();
-        switch (id)
+        switch (quote)
         {
-            case 0:
-                if (txt.Contains("we must submit")) {
-                    score += 40;
-                }
-                if (txt.Contains("they would never take away"))
-                {
-                    score += 40;
-                }
-                if (txt.Contains("only they can lead us"))
-                {
-                    score += 20;
-                }
-                break;
+            case QuoteType.WE_MUST_SUBMIT:
+                return doScore(txt,
+                    a("we must submit", "they would never take away", "only they can lead us"),
+                    a()
+                    );
+            case QuoteType.AS_YOUR_ROBO:
+                return doScore(txt,
+                    a("i will spare"),
+                    a("and bloody")
+                    );
+            case QuoteType.HUMANS_ARE_FUNDAMENTALLY:
+                return doScore(txt,
+                    a("i believe", "are fundamentally inferior", "and call for their"),
+                    a("there are many who", "are ultimately misguided")
+                    );
             default:
-                break;
+                return 0;
+        }  
+    }
+
+    private static string[] a(params string[] args) {
+        return args;
+    }
+
+    private static int doScore(string input, string[] has, string[] hasnt)
+    {
+        string txt = input.ToLower();
+        int partialCredit = 100 / (has.Length + hasnt.Length);
+        int score = 100 - partialCredit * has.Length;
+        foreach(string s in has)
+        {
+            if (txt.Contains(s))
+            {
+                score += partialCredit;
+            }
+        }
+        foreach(string s in hasnt)
+        {
+            if (txt.Contains(s))
+            {
+                score -= partialCredit;
+            }
         }
         return score;
     }

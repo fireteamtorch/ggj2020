@@ -12,7 +12,6 @@ public class DirectorText : MonoBehaviour
     public int quotePlayerScore;
     public int quoteMaxScore;
 
-
     // Update is called once per frame
     void Update()
     {
@@ -75,40 +74,19 @@ public class DirectorText : MonoBehaviour
         }
 
         Debug.Log("FINAL OUTPUT: " + outputString);
-
-        ScoreQuote(outputString);
+        ScoreQuote(outputString, selectedQuoteType);
     }
 
-    private void ScoreQuote(string concatenatedText)
+    private void ScoreQuote(string concatenatedText, QuoteType quoteType)
     {
         string rubricString = quotesRefList[(int)selectedQuoteType];
 
         Debug.Log("Player Quote: " + concatenatedText);
         Debug.Log("Quote to grade to : " + rubricString);
 
-        switch (selectedQuoteType)
-        {
-            case QuoteType.TEST_QUOTE: // Can make unique grading criteria for the test quote here 
+        quotePlayerScore = ScoringScript.GetScore(concatenatedText, quoteType);
 
-                
-
-                // grade here
-
-
-
-                // set these to score actual values
-                quotePlayerScore = 10;
-                quoteMaxScore = 10;
-
-
-                break;
-
-            default:
-                quoteMaxScore = 0;
-                quotePlayerScore = 0;
-                break;
-        }
-
+        Debug.Log("Scored out of 100: " + quotePlayerScore);
 
     }
 }
