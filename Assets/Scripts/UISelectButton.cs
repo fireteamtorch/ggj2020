@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ButtonType { NONE, SUBMIT}
+public enum ButtonType { NONE, SUBMIT, START }
 
 public class UISelectButton : MonoBehaviour
 {
@@ -71,7 +71,9 @@ public class UISelectButton : MonoBehaviour
             case ButtonType.SUBMIT:
                 (GameObject.FindObjectOfType<DirectorGame>()).ReportSubmitted();
                 break;
-
+            case ButtonType.START:
+                (GameObject.FindObjectOfType<DirectorGame>()).StartGame();
+                break;
             default:
                 break;
         }
