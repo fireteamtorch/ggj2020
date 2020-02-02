@@ -37,6 +37,7 @@ public class DirectorGame : MonoBehaviour
     public DisplayingTextScript displayScript;
     public DisplayingTextScript introScript;
 
+
     // Start is called before the first frame update
     void Start()
     {
