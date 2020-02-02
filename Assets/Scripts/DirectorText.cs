@@ -21,7 +21,7 @@ public class DirectorText : MonoBehaviour
 
     void AttemptConcatenateAllText()
     {
-        TextDragScript[] allTextScripts = GameObject.FindObjectsOfType<TextDragScript>();
+        TextDragScript[] allTextScripts = GameObject.FindObjectsOfType<TextDragScript>(); // Grabs every TextDragScript in the scene
         List<TextDragScript> tempTextsList = new List<TextDragScript>();
         List<TextDragScript> tempOutputList = new List<TextDragScript>();
         foreach (TextDragScript tempScript in allTextScripts)

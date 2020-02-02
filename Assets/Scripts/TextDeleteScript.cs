@@ -49,14 +49,13 @@ public class TextDeleteScript : MonoBehaviour
         {
             isAttemptingClick = true;
             clickTimer = 0f;
-            //Debug.Log("Click start");
         }
 
         if(Input.GetMouseButtonUp(0) && isAttemptingClick && clickTimer < clickThreshold)
         {
+            //TODO REPORT REMOVE ATTEMPT HERE
             isDeleted = !isDeleted;
             isAttemptingClick = false;
-            //Debug.Log("CLICKED");
         }
     }
 

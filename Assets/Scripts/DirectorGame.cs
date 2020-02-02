@@ -26,8 +26,16 @@ public class DirectorGame : MonoBehaviour
 
     public bool ReportDeleteAttempt()
     {
-        
+        return false;
+    }
 
+    public bool ReportMoveAttempt()
+    {
+        return false;
+    }
+
+    public bool ReportInsertAttempt()
+    {
         return false;
     }
 }
