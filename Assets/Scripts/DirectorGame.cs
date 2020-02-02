@@ -48,6 +48,10 @@ public class DirectorGame : MonoBehaviour
         textDirector = GameObject.FindObjectOfType<DirectorText>();
         maxRemovesAllowed = 2;
         currentRemoveCount = 0;
+
+        // Test
+        AudioHandlerScript audioScript = GameObject.Find("AudioHandler").GetComponent<AudioHandlerScript>();
+        audioScript.startElectronicMusic();
     }
 
     // Update is called once per frame
