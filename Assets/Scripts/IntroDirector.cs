@@ -25,10 +25,6 @@ public class IntroDirector : MonoBehaviour
         displayText.TriggerEffect();
         done = false;
 
-        // Test
-        AudioHandlerScript audioScript = GameObject.Find("AudioHandler").GetComponent<AudioHandlerScript>();
-        audioScript.startRussianMusic();
-
     }
 
     // Update is called once per frame
