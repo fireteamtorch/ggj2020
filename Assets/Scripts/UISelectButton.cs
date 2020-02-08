@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public enum ButtonType { NONE, SUBMIT, START }
+public enum ButtonType { NONE, SUBMIT, NEWS_BRIEF }
 
 public class UISelectButton : MonoBehaviour
 {
@@ -71,7 +72,11 @@ public class UISelectButton : MonoBehaviour
             case ButtonType.SUBMIT:
                 (GameObject.FindObjectOfType<DirectorGame>()).ReportSubmitted();
                 break;
-      
+
+            case ButtonType.NEWS_BRIEF:
+                SceneManager.LoadScene("NewscastScene");
+                break;
+
             default:
                 break;
         }

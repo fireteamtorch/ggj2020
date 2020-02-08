@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene2.unity
     guid: f606d6087493b9844a7ed705b2c5bf35
+  - enabled: 1
+    path: Assets/Scenes/NewscastScene.unity
+    guid: 897f08d283e8cb843a2ba663522cd914
   m_configObjects: {}

@@ -36,6 +36,8 @@ public class DirectorGame : MonoBehaviour
 
     public DisplayingTextScript displayScript;
 
+    [SerializeField] private GameObject newsButton;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -169,6 +171,7 @@ public class DirectorGame : MonoBehaviour
                 }
                 dialogueAnchor.transform.position = Vector3.Lerp(dialogueAnchor.transform.position, offScreenDialoguePos, Time.deltaTime * 5f);
                 textDirector.quoteFramesList[(int)textDirector.selectedQuoteType].transform.position = Vector3.Lerp(textDirector.quoteFramesList[(int)textDirector.selectedQuoteType].transform.position, offScreenQuotePos, Time.deltaTime * 5f);
+                newsButton.SetActive(true);
                 break;
 
             default:

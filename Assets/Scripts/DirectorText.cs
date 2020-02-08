@@ -127,7 +127,7 @@ public class DirectorText : MonoBehaviour
     {
         AttemptConcatenateAllText();
         //quotePlayerScore = ScoringScript.GetScore(concatenatedText, quoteType);
-        SceneVariableManager.score = quotePlayerScore;
+
         Debug.Log("Scored out of 100: " + quotePlayerScore);
 
     }
