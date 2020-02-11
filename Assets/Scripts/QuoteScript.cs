@@ -11,6 +11,8 @@ public class QuoteScript : MonoBehaviour
     public TextDragScript[] dragList;
     public TextDeleteScript[] deleteList;
 
+    public string startQuote;
+
     private void Awake()
     {
         dragList = this.GetComponentsInChildren<TextDragScript>();

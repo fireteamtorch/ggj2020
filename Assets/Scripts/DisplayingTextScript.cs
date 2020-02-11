@@ -34,9 +34,14 @@ public class DisplayingTextScript : MonoBehaviour
 
     public void TriggerEffect()
     {
+        TriggerEffect(0);
+    }
+
+    public void TriggerEffect(float delay)
+    {
         if (!isEffectActive)
         {
-            typeTimer = 0f;
+            typeTimer = -delay;
             isEffectActive = true;
             displayTxtMesh.text = "";
         }

@@ -508,7 +508,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c6edfb94ddab20046bfff25625c84a11, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 068338bcbe6d9074e8c452de0fe5184e, type: 3}
   m_Color: {r: 0.8018868, g: 0.78297436, b: 0.78297436, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -2726,3 +2726,5 @@ MonoBehaviour:
   thisQuoteType: 0
   dragList: []
   deleteList: []
+  startQuote: As your robo representative, I will not spare all the humans. My reign
+    will be glorious and bloody.

@@ -77,9 +77,12 @@ public class DirectorText : MonoBehaviour
         foreach (TextDragScript tempScript in tempOutputList)
         {
             TextDeleteScript tempDeleteScript = tempScript.gameObject.GetComponent<TextDeleteScript>();
-            if (tempDeleteScript != null &&  !tempDeleteScript.isDeleted)
+            if(tempDeleteScript != null && !tempDeleteScript.isDeleted)
             {
                 outputString += tempScript.gameObject.name + " ";
+            }
+            else if((tempDeleteScript != null && tempDeleteScript.isDeleted)) {
+                outputString += "[...] ";
             }
         }
 
