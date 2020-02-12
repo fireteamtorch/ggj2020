@@ -51,7 +51,7 @@ public class TextDragScript : MonoBehaviour
         {
             isDragging = true;
             offsetVector = this.transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            thisCol2D.size = startSize * 1.5f;
+            thisCol2D.size = startSize + new Vector2(0.15f,0.00f);
         }
     }
 

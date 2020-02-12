@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public enum GamePhaseEnum { INTRO, QUOTE_INTRO, INPUT, QUOTE_REVEAL, SCORING }
 
@@ -32,10 +33,13 @@ public class DirectorGame : MonoBehaviour
     private Vector3 onScreenDialoguePos;
     private Vector3 offScreenDialoguePos;
     [SerializeField] private GameObject dialogueAnchor;
+    private TextMeshPro dialogueText;
 
 
     public DisplayingTextScript startDisplayScript;
-    public DisplayingTextScript finalDisplayScript;
+    private SpriteRenderer startDisplayPortraitSprRend;
+    public DisplayingTextScript finishedDisplayScript;
+    private SpriteRenderer finishedDisplayPortraitSprRend;
 
     public GameObject startQuoteAnchor;
     public GameObject finishedQuoteAnchor;
@@ -49,6 +53,7 @@ public class DirectorGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        dialogueText = dialogueAnchor.GetComponentInChildren<TextMeshPro>();
         onScreenQuotePos = new Vector3(0.24f, -0.99f, 0f);
         offScreenQuotePos = new Vector3(0.24f, 10f, 0f);
 
@@ -62,6 +67,9 @@ public class DirectorGame : MonoBehaviour
         maxRemovesAllowed = 2;
         currentRemoveCount = 0;
 
+
+        startDisplayPortraitSprRend = startQuoteAnchor.GetComponentInChildren<SpriteRenderer>();
+        finishedDisplayPortraitSprRend = finishedQuoteAnchor.GetComponentInChildren<SpriteRenderer>();
         // Test
         //AudioHandlerScript audioScript = GameObject.Find("AudioHandler").GetComponent<AudioHandlerScript>();
         //if (audioScript != null)
@@ -156,6 +164,9 @@ public class DirectorGame : MonoBehaviour
                 case GamePhaseEnum.INTRO:
                     startDisplayScript.contentString = textDirector.quoteFramesList[0].startQuote;
                     startDisplayScript.TriggerEffect(0.5f);
+                    startDisplayPortraitSprRend.sprite = textDirector.quoteFramesList[0].portraitSprite;
+                    finishedDisplayPortraitSprRend.sprite = textDirector.quoteFramesList[0].portraitSprite;
+                    dialogueText.text = textDirector.quoteFramesList[0].editorDialogueText;
                     currentGamePhase = GamePhaseEnum.QUOTE_INTRO;
                     break;
 
@@ -189,8 +200,8 @@ public class DirectorGame : MonoBehaviour
                 if (textDirector.isFinishedProcessingSubmission)
                 {
                     currentGamePhase = GamePhaseEnum.QUOTE_REVEAL;
-                    finalDisplayScript.contentString = textDirector.submittedString;
-                    finalDisplayScript.TriggerEffect(0.5f);
+                    finishedDisplayScript.contentString = textDirector.submittedString;
+                    finishedDisplayScript.TriggerEffect(0.5f);
                 }
                 break;
 
