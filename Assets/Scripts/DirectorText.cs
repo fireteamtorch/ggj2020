@@ -16,6 +16,7 @@ public class DirectorText : MonoBehaviour
 
     public string submittedString;
     public int submissionScore;
+    public string gradingString;
 
     public bool isFinishedProcessingSubmission;
 
@@ -74,6 +75,7 @@ public class DirectorText : MonoBehaviour
         }
 
         string outputString = "";
+        string cleanStringToGrade = "";
         foreach (TextDragScript tempScript in tempOutputList)
         {
             TextDeleteScript tempDeleteScript = tempScript.gameObject.GetComponent<TextDeleteScript>();
@@ -81,13 +83,16 @@ public class DirectorText : MonoBehaviour
             if ((tempDragScript != null && tempDragScript.isDragable))
             {
                 outputString += "-" + tempScript.gameObject.name + "- ";
+                cleanStringToGrade += tempScript.gameObject.name + " ";
             }
             else if((tempDeleteScript != null && tempDeleteScript.isDeleted)) {
                 outputString += "[...] ";
+                //cleanStringToGrade;
             }
             else 
             {
                 outputString += tempScript.gameObject.name + " ";
+                cleanStringToGrade += tempScript.gameObject.name + " ";
             }
         }
 
@@ -101,7 +106,8 @@ public class DirectorText : MonoBehaviour
         isFinishedProcessingSubmission = true;
 
         ScoreQuote(outputString, selectedQuoteType);
-
+        gradingString = cleanStringToGrade;
+        Debug.Log("To grade:" + gradingString);
     }
 
     private void ScoreQuote(string concatenatedText, QuoteType quoteType)

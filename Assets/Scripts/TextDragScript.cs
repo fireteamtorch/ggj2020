@@ -13,17 +13,25 @@ public class TextDragScript : MonoBehaviour
 
     private Vector2 startSize;
 
+    private SpriteRenderer sprRend;
+
     private void Awake()
     {
         thisRigid2D = this.GetComponent<Rigidbody2D>();
         thisCol2D = this.GetComponent<BoxCollider2D>();
         startSize = thisCol2D.size;
+        sprRend = this.GetComponentInChildren<SpriteRenderer>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (isDragable)
+        {
+            sprRend.color = Color.blue;
+        }
+
+
     }
 
     // Update is called once per frame

@@ -162,6 +162,10 @@ public class DirectorGame : MonoBehaviour
             switch (currentGamePhase)
             {
                 case GamePhaseEnum.INTRO:
+                    maxRemovesAllowed = textDirector.quoteFramesList[0].removeCount;
+                    maxMovesAllowed = textDirector.quoteFramesList[0].reorderCount;
+                    maxInsertsAllowed = textDirector.quoteFramesList[0].rephraseCount;
+
                     startDisplayScript.contentString = textDirector.quoteFramesList[0].startQuote;
                     startDisplayScript.TriggerEffect(0.5f);
                     startDisplayPortraitSprRend.sprite = textDirector.quoteFramesList[0].portraitSprite;
