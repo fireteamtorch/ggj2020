@@ -170,6 +170,9 @@ public class DirectorGame : MonoBehaviour
                     startDisplayScript.TriggerEffect(0.5f);
                     startDisplayPortraitSprRend.sprite = textDirector.quoteFramesList[0].portraitSprite;
                     finishedDisplayPortraitSprRend.sprite = textDirector.quoteFramesList[0].portraitSprite;
+
+                    SceneVariableManager.originalQuote = textDirector.quoteFramesList[0].startQuote;
+
                     dialogueText.text = textDirector.quoteFramesList[0].editorDialogueText;
                     currentGamePhase = GamePhaseEnum.QUOTE_INTRO;
                     break;

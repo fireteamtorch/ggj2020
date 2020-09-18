@@ -108,6 +108,9 @@ public class DirectorText : MonoBehaviour
         ScoreQuote(outputString, selectedQuoteType);
         gradingString = cleanStringToGrade;
         Debug.Log("To grade:" + gradingString);
+
+        
+        SceneVariableManager.editedQuote = cleanStringToGrade;
     }
 
     private void ScoreQuote(string concatenatedText, QuoteType quoteType)

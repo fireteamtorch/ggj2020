@@ -21,7 +21,7 @@ public class ScoringScript : MonoBehaviour
     {
         switch (quote)
         {
-            case QuoteType.WE_MUST_SUBMIT:
+            case QuoteType.WE_MUST_NEVER_SUBMIT:
                 return doScore(txt,
                     a("we must submit", "they would never take away", "only they can lead us"),
                     a()
@@ -31,7 +31,7 @@ public class ScoringScript : MonoBehaviour
                     a("i will spare"),
                     a("and bloody")
                     );
-            case QuoteType.HUMANS_ARE_FUNDAMENTALLY:
+            case QuoteType.WE_SHOULD_INVEST:
                 return doScore(txt,
                     a("i believe", "are fundamentally inferior", "and call for their"),
                     a("there are many who", "are ultimately misguided")

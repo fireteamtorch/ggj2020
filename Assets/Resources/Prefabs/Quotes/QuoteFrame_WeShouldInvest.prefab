@@ -276,7 +276,6 @@ GameObject:
   - component: {fileID: 1878570081721830005}
   - component: {fileID: 6121075782154080201}
   - component: {fileID: 4340971808946235468}
-  - component: {fileID: 1973601007962374922}
   m_Layer: 4
   m_Name: freedom of thought
   m_TagString: Untagged
@@ -361,20 +360,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDragable: 1
   isDragging: 0
---- !u!114 &1973601007962374922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1433154055446623880}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8457dc51c6997564f96d143a2492515b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDeleteable: 0
-  isDeleted: 0
 --- !u!1 &1501606902390896236
 GameObject:
   m_ObjectHideFlags: 0

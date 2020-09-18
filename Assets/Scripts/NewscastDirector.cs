@@ -37,7 +37,7 @@ public class NewscastDirector : MonoBehaviour
         }
 
         // Test
-        AudioHandlerScript audioScript = GameObject.Find("AudioHandler").GetComponent<AudioHandlerScript>();
+        AudioHandlerScript audioScript = GameObject.Find("AudioHandler")?.GetComponent<AudioHandlerScript>();
         audioScript.startNewsHeadMusic();
     }
 
