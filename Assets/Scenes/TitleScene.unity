@@ -356,7 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de4787cea36071d47af7cd62c7c7c047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicRussianLoop: {fileID: 8300000, guid: 9793b047355dfd340ba34e97bfaf4b92, type: 3}
+  musicRussianLoop: {fileID: 8300000, guid: 96176cc6a26471240bc40fa864a2f2ed, type: 3}
   musicElectronicLoop: {fileID: 8300000, guid: 96176cc6a26471240bc40fa864a2f2ed, type: 3}
   musicNewsHead: {fileID: 8300000, guid: 799b60699343a834f86602e77a8bbb2a, type: 3}
   musicNewsLoop: {fileID: 8300000, guid: c1fb784ffb1c6114c822300754d97f2e, type: 3}
@@ -370,7 +370,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9793b047355dfd340ba34e97bfaf4b92, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e81fb9eaeb4ab88409427a44eb2289eb, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
